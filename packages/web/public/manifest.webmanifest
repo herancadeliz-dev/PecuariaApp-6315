@@ -1,0 +1,11 @@
+{
+  "name": "Manejo Campo — Painel do Peão",
+  "short_name": "Manejo Campo",
+  "lang": "pt-BR",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f4f1e6",
+  "theme_color": "#0e3b2a",
+  "icons": [{ "src": "/favicon.ico", "sizes": "48x48", "type": "image/x-icon" }]
+}

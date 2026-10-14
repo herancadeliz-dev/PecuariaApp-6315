@@ -1,0 +1,60 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@font-face { font-family: "Barlow"; font-weight: 500; font-display: swap; src: url("/fonts/barlow-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Barlow"; font-weight: 600; font-display: swap; src: url("/fonts/barlow-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "Barlow"; font-weight: 700; font-display: swap; src: url("/fonts/barlow-latin-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "Barlow Condensed"; font-weight: 600; font-display: swap; src: url("/fonts/barlow-condensed-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "Barlow Condensed"; font-weight: 700; font-display: swap; src: url("/fonts/barlow-condensed-latin-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "Barlow Condensed"; font-weight: 800; font-display: swap; src: url("/fonts/barlow-condensed-latin-800-normal.woff2") format("woff2"); }
+
+@theme {
+  --font-sans: "Barlow", system-ui, sans-serif;
+  --font-display: "Barlow Condensed", "Barlow", system-ui, sans-serif;
+
+  --color-campo: #f4f1e6;
+  --color-papel: #ffffff;
+  --color-tinta: #0b0b0b;
+  --color-mata: #0e3b2a;
+  --color-mata-2: #155c40;
+  --color-pasto: #15803d;
+  --color-sol: #ffc800;
+  --color-sol-2: #ffdb4d;
+  --color-alerta: #c81e1e;
+  --color-alerta-claro: #ffe1dc;
+  --color-ok-claro: #d9f5e1;
+
+  --shadow-duro: 4px 4px 0 0 #0b0b0b;
+  --shadow-duro-sm: 2px 2px 0 0 #0b0b0b;
+}
+
+@layer base {
+  html { -webkit-tap-highlight-color: transparent; }
+  body {
+    @apply bg-campo text-tinta font-sans antialiased;
+    font-size: 18px;
+    overscroll-behavior-y: none;
+  }
+  button { touch-action: manipulation; cursor: pointer; }
+  :focus-visible { outline: 4px solid #ffc800; outline-offset: 2px; }
+}
+
+@layer components {
+  /* Botão "relevo": borda grossa + sombra dura, afunda ao tocar */
+  .btn-campo {
+    @apply border-[3px] border-tinta rounded-2xl shadow-duro transition-[transform,box-shadow] duration-75 select-none;
+  }
+  .btn-campo:active:not(:disabled) {
+    transform: translate(3px, 3px);
+    box-shadow: 1px 1px 0 0 #0b0b0b;
+  }
+  .btn-campo:disabled { @apply opacity-40 cursor-not-allowed; }
+  .cartao-campo { @apply bg-papel border-[3px] border-tinta rounded-2xl shadow-duro; }
+  .rotulo { @apply text-[13px] font-bold uppercase tracking-[0.12em]; }
+}
+
+@keyframes varredura {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+.anim-varredura { animation: varredura 0.9s linear infinite; }
